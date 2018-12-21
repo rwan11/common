@@ -2,6 +2,7 @@ package com.rwan.im.server.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
@@ -120,7 +121,13 @@ public class MultiplexerTimeServer implements Runnable {
             if (key.isReadable()){
                 SocketChannel sc = (SocketChannel) key.channel();
 
+                ByteBuffer readBuffer = ByteBuffer.allocate(1024);
 
+                int readBytes = sc.read(readBuffer);
+
+                if (readBytes > 0){
+
+                }
             }
         }
     }
