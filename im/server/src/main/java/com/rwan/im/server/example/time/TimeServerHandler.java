@@ -31,7 +31,7 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
         ByteBuf rsp = Unpooled.copiedBuffer(currenTime.getBytes());
         ctx.writeAndFlush(rsp);
 
-        ctx.writeAndFlush(currenTime);
+//        ctx.writeAndFlush(currenTime);
     }
 
   /*  @Override
