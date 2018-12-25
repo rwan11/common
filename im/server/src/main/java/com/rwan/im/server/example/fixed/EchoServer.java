@@ -14,6 +14,7 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 /**
+ * 固定报文长度
  * @author johnlog
  * @date 2018/12/24
  */

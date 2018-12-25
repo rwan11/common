@@ -1,6 +1,5 @@
 package com.rwan.im.server.example.protobuf;
 
-import com.rwan.im.server.example.serial.SubReqClientHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -17,6 +16,7 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 /**
+ * protobuf 协议
  * @author johnlog
  * @date 2018/12/25
  */

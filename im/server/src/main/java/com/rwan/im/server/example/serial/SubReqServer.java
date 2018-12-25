@@ -15,6 +15,7 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 /**
+ * java 序列化
  * @author johnlog
  * @date 2018/12/24
  */

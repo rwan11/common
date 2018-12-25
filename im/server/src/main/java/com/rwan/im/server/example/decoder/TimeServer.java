@@ -12,6 +12,7 @@ import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
 /**
+ * 回车换行符结尾
  * @author johnlog
  * @date 2018/12/24
  */
