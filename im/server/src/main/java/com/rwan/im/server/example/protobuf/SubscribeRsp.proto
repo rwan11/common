@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package protobuf;
+
+option java_package = "com.rwan.im.server.example.protobuf";
+option java_outer_classname = "SubscribeRsp";
+
+message subscribersp{
+	required int32 subReqId = 1;
+	required int32 rspCode = 2;
+	required string desc = 3;
+}

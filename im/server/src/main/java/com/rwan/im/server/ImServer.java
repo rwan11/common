@@ -41,7 +41,7 @@ public class ImServer {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
 
-                        socketChannel.pipeline().addLast()
+                        socketChannel.pipeline().addLast();
                     }
                 }).option(ChannelOption.SO_BACKLOG,128)
                 .childOption(ChannelOption.SO_KEEPALIVE,true);

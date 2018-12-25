@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package protobuf;
+
+option java_package = "com.rwan.im.server.example.protobuf";
+option java_outer_classname = "SubscribeReq";
+
+message subscribereq {
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+  repeated string desc = 4;
+}

@@ -7,6 +7,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -123,12 +124,78 @@ public class MultiplexerTimeServer implements Runnable {
 
                 ByteBuffer readBuffer = ByteBuffer.allocate(1024);
 
-                int readBytes = sc.read(readBuffer);
 
-                if (readBytes > 0){
+                StringBuilder sb = new StringBuilder();
 
+                int count;
+
+                while ((count = sc.read(readBuffer)) > 0){
+                    readBuffer.mark();
+                   String message = decode(readBuffer);
+
+                   sb.append(message);
+
+                    if (message == null){
+                        readBuffer.reset();
+                    }
                 }
+
+                System.out.println(sb);
+                if (!readBuffer.hasRemaining()){
+                    readBuffer.clear();
+                }
+
+               /* int readBytes = sc.read(readBuffer);
+                if (readBytes > 0){
+                    readBuffer.flip();
+
+
+                    byte[] bytes = new byte[readBuffer.remaining()];
+
+                    readBuffer.get(bytes);
+
+                    String body = new String(bytes,"UTF-8");
+
+                    System.out.println("The Time server receive order:"+body);
+
+                    String currenTime = "Query time server".equalsIgnoreCase(body) ? String.valueOf(System.currentTimeMillis()) : "bad order";
+
+                    doWrite(sc,currenTime);
+                }else if (readBytes < 0){
+                    key.channel();
+                    sc.close();
+                }*/
             }
         }
+    }
+
+    private String decode(ByteBuffer readBuffer){
+
+        try {
+            byte[] bytes = new byte[readBuffer.remaining()];
+
+            readBuffer.get(bytes);
+
+            String body = new String(bytes,"UTF-8");
+
+            return body;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+    private void doWrite(SocketChannel sc, String rsp) throws IOException {
+
+            if (rsp != null){
+                byte[] bytes = rsp.getBytes();
+
+                ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length);
+                writeBuffer.put(bytes);
+                writeBuffer.flip();
+
+                sc.write(writeBuffer);
+
+            }
     }
 }
