@@ -1,0 +1,10 @@
+<binding>
+  <mapping name="customer" class="com.rwan.im.server.example.xml.Customer">
+    <value name="cust-num" field="customerNo"/>
+    <value name="first-name" field="firstName"/>
+    <value name="last-name" field="lastName"/>
+    <collection field="middleNames">
+      <!--<value name="middleName"/>-->
+    </collection>
+  </mapping>
+</binding>

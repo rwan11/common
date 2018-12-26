@@ -48,6 +48,63 @@
         </dependency>
 
 
+        <!-- xml pojo 互转工具  http://jibx.sourceforge.net/maven-jibx-plugin/usage.html -->
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-run</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-extras</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
     </dependencies>
 
+
+
+
+    <build>
+        <plugins>
+           <!-- <plugin>
+                <groupId>org.jibx</groupId>
+                <artifactId>jibx-maven-plugin</artifactId>
+                <version>1.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bind</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+
+            <plugin>
+                <groupId>org.jibx</groupId>
+                <artifactId>jibx-maven-plugin</artifactId>
+                <version>1.3.1</version>
+                <configuration>
+                    <schemaBindingDirectory>src/main/java/com/rwan/im/server/example/xml</schemaBindingDirectory>
+                    <includeSchemaBindings>
+                        <includeSchemaBindings>*-binding.xml</includeSchemaBindings>
+                    </includeSchemaBindings>
+                    <excludeSchemaBindings>
+                        <excludeSchemaBinding>template-binding.xml</excludeSchemaBinding>
+                    </excludeSchemaBindings>
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bind</goal>
+                        </goals>
+
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
 </project>
