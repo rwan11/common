@@ -8,10 +8,10 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.springcloud.sentinel</groupId>
+	<groupId>com.rwan.springcloud</groupId>
 	<artifactId>sentinel</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sentinel</name>
+	<name>springcloud-sentinel</name>
 	<description>springcloud-sentinel</description>
 
 	<properties>

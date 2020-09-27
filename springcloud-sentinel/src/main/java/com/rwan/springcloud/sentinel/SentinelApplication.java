@@ -1,4 +1,4 @@
-package com.springcloud.sentinel.sentinel;
+package com.rwan.springcloud.sentinel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

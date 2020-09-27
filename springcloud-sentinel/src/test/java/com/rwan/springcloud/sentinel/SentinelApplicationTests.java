@@ -1,4 +1,4 @@
-package com.springcloud.sentinel.sentinel;
+package com.rwan.springcloud.sentinel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
